@@ -5,7 +5,7 @@ Param (
 )
 New-Item $hilsen
 
-Write-Host "hallo $hilsen "
+Write-Host "hallo $hilsen"
 
 
 
