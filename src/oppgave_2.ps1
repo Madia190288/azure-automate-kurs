@@ -1,9 +1,11 @@
 # Parameter help description
 Param (
-    $hilsen
+    [PArameter()]
+    [string]
+    $hilsen = "madia"
     
 )
-New-Item $hilsen
+
 
 Write-Host "hallo $hilsen"
 
