@@ -1,11 +1,10 @@
 # Parameter help description
 Param (
-    [PArameter()]
+    [Parameter()]
     [string]
     $hilsen = "madia"
     
 )
-
 
 Write-Host "hallo $hilsen"
 
