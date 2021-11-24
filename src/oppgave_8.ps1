@@ -47,6 +47,15 @@ Param (
         $kortstokktabell
         
     }
+
+    Write-Host "Kortstokk: $(kortstokkprint($kortstokk))"
+    Write-Host "Poengsummen: $(kortsum($kortstokk))"
+
+
+    $meg = $kortstokk[0..1]
+    $kortstokk = $kortstokk[2..$kortstokk.Length]
+    $magnus = $kortstokk[0..1]
+    $kortstokk = $kortstokk[2..$kortstokk.Length]
     
     function skrivutResultat {
         param (
@@ -86,20 +95,23 @@ Param (
         
     }
 
-    
-
-
-    Write-Host "Kortstokk: $(kortstokkprint($kortstokk))"
-    Write-Host "Poengsummen: $(kortsum($kortstokk))"
-
-
-    $meg = $kortstokk[0..1]
-    $kortstokk = $kortstokk[2..$kortstokk.Length]
-    $magnus = $kortstokk[0..1]
-    $kortstokk = $kortstokk[2..$kortstokk.Length]
 
    
    #skrivutResultat $meg $magnus $vinner
+
+
+   while ($(kortsum($meg)) -lt 17) {
+    $meg += $kortstokk[0]
+    $kortstokk = $kortstokk[1..$kortstokk.Count]
+}
+
+if ($(kortsum($meg)) -gt $blackjack) {
+    skrivutResultat -vinner "magnus" -magnus $magnus -meg $meg
+    exit
+}
+
+
+
 
     
     
